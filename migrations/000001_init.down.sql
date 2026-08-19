@@ -1,0 +1,19 @@
+DROP TABLE IF EXISTS agent_findings;
+DROP TABLE IF EXISTS agent_runs;
+DROP TABLE IF EXISTS property_risk_scores;
+DROP TABLE IF EXISTS property_scores;
+DROP TABLE IF EXISTS alert_matches;
+DROP TABLE IF EXISTS alerts;
+DROP TABLE IF EXISTS saved_searches;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS jobs;
+DROP TABLE IF EXISTS listing_history;
+DROP TABLE IF EXISTS listings;
+DROP TABLE IF EXISTS properties;
+DROP TABLE IF EXISTS raw_listings;
+DROP TABLE IF EXISTS collector_runs;
+DROP TABLE IF EXISTS sources;
+
+DROP EXTENSION IF EXISTS pgcrypto;
+DROP EXTENSION IF EXISTS pg_trgm;
+DROP EXTENSION IF EXISTS postgis;

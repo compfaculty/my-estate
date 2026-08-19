@@ -1,0 +1,23 @@
+services:
+  postgres:
+    image: postgis/postgis:16-3.4-alpine
+    platform: linux/amd64
+    container_name: estate-postgres
+    environment:
+      POSTGRES_USER: estate
+      POSTGRES_PASSWORD: estate
+      POSTGRES_DB: estate
+    ports:
+      - "55433:5432"
+    volumes:
+      - estate_pgdata:/var/lib/postgresql/data
+      - ./pg_hba.conf:/etc/postgresql/pg_hba.conf:ro
+    command: ["postgres", "-c", "hba_file=/etc/postgresql/pg_hba.conf"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U estate -d estate"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  estate_pgdata:
